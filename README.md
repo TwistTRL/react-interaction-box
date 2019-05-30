@@ -7,8 +7,6 @@ In designing this compoennts, I looked at dygraph.js. In dygraph.js, mouse event
 Hence, this interaction box is born, to mirror the design of degraph.js.
 Plot interactions are complex. To enable some levels of customizability, we defined `mode`s and `action`s. There are 4 `mode`s and they transition between one another based on `action`s. Users can disable (skip) certain `mode`s by customize the way they transition.
 
-## Standardized 
-
 ## Modes
 * hovering
 * clicking
