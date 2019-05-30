@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import PlotInteractionBox, {INTERACTION_MODEL_PANNING} from "./PlotInteractionBox";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import PlotInteractionBox from "./PlotInteractionBox";
 
-class PlotInteractionBoxProvider extends Component {
+class PlotInteractionProvider extends Component {
   constructor(props){
     super(props);
     this.state = {hoveringPosition:null,
@@ -15,11 +16,11 @@ class PlotInteractionBoxProvider extends Component {
   }
   
   render(){
-    let {render,width,height} = this.props;
+    let {render,width,height,transitionGraph} = this.props;
     return (
       <PlotInteractionBox width={width}
                           height={height}
-                          transitionGraph={INTERACTION_MODEL_PANNING}
+                          transitionGraph={transitionGraph}
                           hoveringHandler={this.handleHovering}
                           hoverEndHandler={this.handleHoverEnd}
                           clickHandler={this.handleClick}
@@ -69,5 +70,11 @@ class PlotInteractionBoxProvider extends Component {
   }
 }
 
+PlotInteractionProvider.propTypes = {
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  render: PropTypes.func.isRequired,
+  transitionGraph:  PropTypes.object.isRequired,
+}
 
-export default PlotInteractionBoxProvider;
+export default PlotInteractionProvider;

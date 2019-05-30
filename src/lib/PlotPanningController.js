@@ -1,7 +1,7 @@
 import {PureComponent} from "react";
 import {fromDomXCoord_Linear} from "plot-utils";
 
-class PlotPanningController extends PureComponent {
+class PlotHorizontalPanningController extends PureComponent {
   constructor(props){
     super(props);
     this.lastEvent = null;
@@ -48,4 +48,6 @@ class PlotPanningController extends PureComponent {
   }
 }
 
-export default PlotPanningController;
+
+
+export default PlotHorizontalPanningController;

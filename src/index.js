@@ -1,52 +1,56 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import {PlotInteractionBox} from "./lib";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
+
+import {PlotInteractionBox,PlotInteractionProvider} from "./lib";
 import {INTERACTION_MODEL_DEFAULT,INTERACTION_MODEL_SELECTING,
         INTERACTION_MODEL_PANNING,INTERACTION_MODEL_BARE} from "./lib";
+// CSS
+import "./index.css";
 
 const TRANSITION_GRAPH = {INTERACTION_MODEL_DEFAULT,INTERACTION_MODEL_SELECTING,
                           INTERACTION_MODEL_PANNING,INTERACTION_MODEL_BARE};
 
-class App extends Component {
+class PlotInteractionBoxBundle extends Component {
   constructor(props){
     super(props);
     this.state = {width: 1000,
                   height: 400,
                   transitionGraph_: "INTERACTION_MODEL_BARE",
-                  
-                  hoveringDomX: null,
-                   hoveringDomY: null,
-                   hoveringClientX: null,
-                   hoveringClientY: null,
-                   panningStartDomX: null,
-                   panningStartDomY: null,
-                   panningStartClientX: null,
-                   panningStartClientY: null,
-                   panningEndDomX: null,
-                   panningEndDomY: null,
-                   panningEndClientX: null,
-                   panningEndClientY: null,
-                   selectingStartDomX: null,
-                   selectingStartDomY: null,
-                   selectingStartClientX: null,
-                   selectingStartClientY: null,
-                   selectingEndDomX: null,
-                   selectingEndDomY: null,
-                   selectingEndClientX: null,
-                   selectingEndClientY: null,
-                   clickDomX: null,
-                   clickDomY: null,
-                   clickClientX: null,
-                   clickClientY: null,
-                   doubleClickDomX: null,
-                   doubleClickDomY: null,
-                   doubleClickClientX: null,
-                   doubleClickClientY: null
+                  interactions: {
+                    hoveringDomX: null,
+                    hoveringDomY: null,
+                    hoveringClientX: null,
+                    hoveringClientY: null,
+                    panningStartDomX: null,
+                    panningStartDomY: null,
+                    panningStartClientX: null,
+                    panningStartClientY: null,
+                    panningEndDomX: null,
+                    panningEndDomY: null,
+                    panningEndClientX: null,
+                    panningEndClientY: null,
+                    selectingStartDomX: null,
+                    selectingStartDomY: null,
+                    selectingStartClientX: null,
+                    selectingStartClientY: null,
+                    selectingEndDomX: null,
+                    selectingEndDomY: null,
+                    selectingEndClientX: null,
+                    selectingEndClientY: null,
+                    clickDomX: null,
+                    clickDomY: null,
+                    clickClientX: null,
+                    clickClientY: null,
+                    doubleClickDomX: null,
+                    doubleClickDomY: null,
+                    doubleClickClientX: null,
+                    doubleClickClientY: null
+                    }
                   };
   }
-  
   render() {
-    let {width,height,transitionGraph_} = this.state;
+    let {width,height,transitionGraph_,interactions} = this.state;
     return(
       <>
         <div>
@@ -82,74 +86,164 @@ class App extends Component {
         <PlotInteractionBox width={width}
                             height={height}
                             transitionGraph={TRANSITION_GRAPH[transitionGraph_]}
-                            hoveringHandler={(positions)=>this.setState({ hoveringDomX: positions.domX,
-                                                                          hoveringDomY: positions.domY,
-                                                                          hoveringClientX: positions.clientX,
-                                                                          hoveringClientY: positions.clientY,
-                                                                          })}
-                            hoverEndHandler={()=>this.setState({hoveringDomX: null,
-                                                                hoveringDomY: null,
-                                                                hoveringClientX: null,
-                                                                hoveringClientY: null,
-                                                                })}
-                            clickHandler={(positions)=>this.setState({clickDomX: positions.domX,
-                                                                      clickDomY: positions.domY,
-                                                                      clickClientX: positions.clientX,
-                                                                      clickClientY: positions.clientY,
-                                                                      })}
-                            doubleClickHandler={(positions)=>this.setState({doubleClickDomX: positions.domX,
-                                                                            doubleClickDomY: positions.domY,
-                                                                            doubleClickClientX: positions.clientX,
-                                                                            doubleClickClientY: positions.clientY,
-                                                                            })}
-                            selectingHandler={(positions)=>this.setState({selectingStartDomX: positions.start.domX,
-                                                                          selectingStartDomY: positions.start.domY,
-                                                                          selectingStartClientX: positions.start.clientX,
-                                                                          selectingStartClientY: positions.start.clientY,
-                                                                          selectingEndDomX: positions.end.domX,
-                                                                          selectingEndDomY: positions.end.domY,
-                                                                          selectingEndClientX: positions.end.clientX,
-                                                                          selectingEndClientY: positions.end.clientY,
-                                                                          })}
-                            selectedHandler={(positions)=>this.setState({ selectingStartDomX: null,
-                                                                          selectingStartDomY: null,
-                                                                          selectingStartClientX: null,
-                                                                          selectingStartClientY: null,
-                                                                          selectingEndDomX: null,
-                                                                          selectingEndDomY: null,
-                                                                          selectingEndClientX: null,
-                                                                          selectingEndClientY: null,
-                                                                          })}
-                            panningHandler={(positions)=>this.setState({panningStartDomX: positions.start.domX,
-                                                                        panningStartDomY: positions.start.domY,
-                                                                        panningStartClientX: positions.start.clientX,
-                                                                        panningStartClientY: positions.start.clientY,
-                                                                        panningEndDomX: positions.end.domX,
-                                                                        panningEndDomY: positions.end.domY,
-                                                                        panningEndClientX: positions.end.clientX,
-                                                                        panningEndClientY: positions.end.clientY,
-                                                                        })}
-                            pannedHandler={(positions)=>this.setState({ panningStartDomX: null,
-                                                                        panningStartDomY: null,
-                                                                        panningStartClientX: null,
-                                                                        panningStartClientY: null,
-                                                                        panningEndDomX: null,
-                                                                        panningEndDomY: null,
-                                                                        panningEndClientX: null,
-                                                                        panningEndClientY: null,
-                                                                        })}
+                            hoveringHandler={(positions)=>this.setState( {interactions:{...interactions,
+                                                                                        hoveringDomX: positions.domX,
+                                                                                        hoveringDomY: positions.domY,
+                                                                                        hoveringClientX: positions.clientX,
+                                                                                        hoveringClientY: positions.clientY,
+                                                                                        }
+                                                                          })
+                                              }
+                            hoverEndHandler={()=>this.setState( {interactions:{ ...interactions,
+                                                                                hoveringDomX: null,
+                                                                                hoveringDomY: null,
+                                                                                hoveringClientX: null,
+                                                                                hoveringClientY: null,
+                                                                                }
+                                                                })
+                                              }
+                            clickHandler={(positions)=>this.setState( {interactions:{ ...interactions,
+                                                                                      clickDomX: positions.domX,
+                                                                                      clickDomY: positions.domY,
+                                                                                      clickClientX: positions.clientX,
+                                                                                      clickClientY: positions.clientY,
+                                                                                      }
+                                                                      })
+                                              }
+                            doubleClickHandler={(positions)=>this.setState({interactions:{...interactions,
+                                                                                          doubleClickDomX: positions.domX,
+                                                                                          doubleClickDomY: positions.domY,
+                                                                                          doubleClickClientX: positions.clientX,
+                                                                                          doubleClickClientY: positions.clientY,
+                                                                                          }
+                                                                            })
+                                                }
+                            selectingHandler={(positions)=>this.setState({interactions:{...interactions,
+                                                                                        selectingStartDomX: positions.start.domX,
+                                                                                        selectingStartDomY: positions.start.domY,
+                                                                                        selectingStartClientX: positions.start.clientX,
+                                                                                        selectingStartClientY: positions.start.clientY,
+                                                                                        selectingEndDomX: positions.end.domX,
+                                                                                        selectingEndDomY: positions.end.domY,
+                                                                                        selectingEndClientX: positions.end.clientX,
+                                                                                        selectingEndClientY: positions.end.clientY,
+                                                                                        }
+                                                                          })
+                                              }
+                            selectedHandler={(positions)=>this.setState({ interactions:{...interactions,
+                                                                                        selectingStartDomX: null,
+                                                                                        selectingStartDomY: null,
+                                                                                        selectingStartClientX: null,
+                                                                                        selectingStartClientY: null,
+                                                                                        selectingEndDomX: null,
+                                                                                        selectingEndDomY: null,
+                                                                                        selectingEndClientX: null,
+                                                                                        selectingEndClientY: null,
+                                                                                        }
+                                                                          })
+                                              }
+                            panningHandler={(positions)=>this.setState({interactions:{...interactions,
+                                                                                      panningStartDomX: positions.start.domX,
+                                                                                      panningStartDomY: positions.start.domY,
+                                                                                      panningStartClientX: positions.start.clientX,
+                                                                                      panningStartClientY: positions.start.clientY,
+                                                                                      panningEndDomX: positions.end.domX,
+                                                                                      panningEndDomY: positions.end.domY,
+                                                                                      panningEndClientX: positions.end.clientX,
+                                                                                      panningEndClientY: positions.end.clientY,
+                                                                                      }
+                                                                        })
+                                            }
+                            pannedHandler={(positions)=>this.setState({ interactions:{...interactions,
+                                                                                      panningStartDomX: null,
+                                                                                      panningStartDomY: null,
+                                                                                      panningStartClientX: null,
+                                                                                      panningStartClientY: null,
+                                                                                      panningEndDomX: null,
+                                                                                      panningEndDomY: null,
+                                                                                      panningEndClientX: null,
+                                                                                      panningEndClientY: null,
+                                                                                      }
+                                                                        })
+                                            }
                             >
           <div style={{width:"100%",height:"100%",backgroundColor:"grey"}}>
-            asdasd
-            asdasd
           </div>
         </PlotInteractionBox>
-        <pre>
-          {JSON.stringify(this.state,null,' ')}
-        </pre>
+        <div>
+          * The mouse interaction goes to the state and then updates this JSON display.
+          <pre>
+            {JSON.stringify(this.state.interactions,null,' ')}
+          </pre>
+        </div>
       </>
     );
   }
+}
+
+class PlotInteractionProviderBundle extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {width: 1000,
+                  height: 400,
+                  transitionGraph_: "INTERACTION_MODEL_BARE"
+                  }
+  }
+  render(){
+    let {width,height,transitionGraph_} = this.state;
+    return (
+      <>
+        <div>
+          width
+          <input type="range" min={500} max={1000} value={width} onChange={(ev)=>this.setState({width:Number.parseInt(ev.target.value)})}/>
+        </div>
+        <div>
+          height
+          <input type="range" min={500} max={1000} value={height} onChange={(ev)=>this.setState({height:Number.parseInt(ev.target.value)})}/>
+        </div>
+        <div>
+          transitionGraph
+          <select value={transitionGraph_} onChange={(ev)=>this.setState({transitionGraph_:ev.target.value})}>
+            <option value="INTERACTION_MODEL_BARE">BARE</option>
+            <option value="INTERACTION_MODEL_SELECTING">SELECTING</option>
+            <option value="INTERACTION_MODEL_PANNING">PANNING</option>
+            <option value="INTERACTION_MODEL_DEFAULT">DEFAULT</option>
+          </select>
+        </div>
+        <div>
+          Additional arguments:
+          <ul>
+              <li>render</li>
+          </ul>
+        </div>
+        <PlotInteractionProvider  width={width}
+                                  height={height}
+                                  transitionGraph={TRANSITION_GRAPH[transitionGraph_]}
+                                  render={(data) => {
+          return (
+            <div style={{width:"100%",height:"100%",backgroundColor:"lightgrey"}}>
+              <pre style={{fontSize:"8pt"}}>
+                {JSON.stringify(data,null,' ')}
+              </pre>
+            </div>
+          )
+                                  }}/>
+      </>
+    )
+  }
+}
+
+const App = (props)=>{
+  return (
+    <Router>
+      <nav className="app">
+        <Link to="/PlotInteractionBox">PlotInteractionBox</Link>
+        <Link to="/PlotInteractionProvider">PlotInteractionProvider</Link>
+      </nav>
+      <Route path="/PlotInteractionBox" exact component={PlotInteractionBoxBundle}/>
+      <Route path="/PlotInteractionProvider" exact component={PlotInteractionProviderBundle}/>
+    </Router>
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
