@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
+import VerticalCrosshair, {VerticalCrosshairSelector} from "react-plot-vertical-crosshair";
 
 import {PlotInteractionBox,PlotInteractionProvider} from "./lib";
 import {INTERACTION_MODEL_DEFAULT,INTERACTION_MODEL_SELECTING,
@@ -233,15 +234,72 @@ class PlotInteractionProviderBundle extends Component {
   }
 }
 
+class PlotInteractionProviderwithVerticalCrosshairBundle extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {crosshairX:null};
+  }
+  
+  render() {
+    let {crosshairX} = this.state;
+    let width = 400;
+    let height = 400; 
+    let minX = 0;
+    let maxX = 400;
+    
+    return (
+      <div style={{position:"relative",width:width,height:height}}>
+        <div style={{ position:"absolute",
+                      backgroundImage:"linear-gradient(to bottom right, rgba(0,0,0,0), lightblue)",
+                      width:width,height:height
+                      }}>
+        </div>
+        <div style={{ position:"absolute",
+                      backgroundImage:"linear-gradient(to bottom right, pink, rgba(0,0,0,0))",
+                      width:width,height:height
+                      }}>
+        </div>
+        <div style={{ position:"absolute",
+                      width:width,height:height
+                      }}>
+          <VerticalCrosshair  width={width} height={height}
+                              minX={minX}
+                              maxX={maxX}
+                              X={crosshairX}
+                              />
+        </div>
+        <div style={{ position:"absolute",
+                      width:width,height:height
+                      }}>
+          <PlotInteractionProvider  width={width} height={height}
+                                    transitionGraph={INTERACTION_MODEL_BARE}
+                                    render={(positions)=>
+            <VerticalCrosshairSelector  width={width}
+                                        minX={minX}
+                                        maxX={maxX}
+                                        hoveringPosition={positions.hoveringPosition}
+                                        selectHandler={(X)=>{
+                                          this.setState({crosshairX:X});
+                                        }}
+                                        />
+                                    }/>
+        </div>
+      </div>
+    );
+  }
+}
+
 const App = (props)=>{
   return (
     <Router>
       <nav className="app">
         <Link to="/PlotInteractionBox">PlotInteractionBox</Link>
         <Link to="/PlotInteractionProvider">PlotInteractionProvider</Link>
+        <Link to="/PlotInteractionProvider_with_VerticalCrosshair">PlotInteractionProvider with VerticalCrosshair</Link>
       </nav>
       <Route path="/PlotInteractionBox" exact component={PlotInteractionBoxBundle}/>
       <Route path="/PlotInteractionProvider" exact component={PlotInteractionProviderBundle}/>
+      <Route path="/PlotInteractionProvider_with_VerticalCrosshair" exact component={PlotInteractionProviderwithVerticalCrosshairBundle}/>
     </Router>
   );
 }

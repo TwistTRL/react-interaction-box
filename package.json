@@ -2,10 +2,7 @@
   "name": "react-plot-interaction-box",
   "version": "0.1.0",
   "dependencies": {
-    "plot-utils": "github:zhoulytwinyu/plot-utils",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "plot-utils": "github:zhoulytwinyu/plot-utils"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
@@ -21,6 +18,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-plot-vertical-crosshair": "github:twisttrl/react-plot-vertical-crosshair",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.0.1"
   },
@@ -58,5 +56,15 @@
     ]
   },
   "main": "dist/index.js",
-  "module": "dist/index.js"
+  "module": "dist/index.js",
+  "homepage": "https://twisttrl.github.io/react-plot-interaction-box",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twisttrl/react-plot-interaction-box.git"
+  },
+  "author": "Lingyu Zhou",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/twisttrl/react-plot-interaction-box/issues"
+  }
 }

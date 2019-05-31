@@ -2,6 +2,9 @@
 An interactive box component designed to overlay plots to capture mouse interactions.
 This is essential because under the current design, a plot is composed of multiple canvases. The order of the layer would inevitably interfere with mouse interactions. The top layer captures all the mouse events and the layers below are not able to capture any events.
 
+## Demo
+https://twisttrl.github.io/react-plot-interaction-box
+
 ## Design
 In designing this compoennts, I looked at dygraph.js. In dygraph.js, mouse event is captures by a top layer canvas. The mouse interactions are then passed to the rest of the plot plugins.
 Hence, this interaction box is born, to mirror the design of degraph.js.
@@ -23,3 +26,5 @@ Plot interactions are complex. To enable some levels of customizability, we defi
 ## Transitions between modes
 TODO
 
+## TODO
+More explanations on how to get it working downstream consumers, e.g. react-plot-vertical-crosshair
