@@ -45,12 +45,20 @@ Object.defineProperty(exports, "PlotPanningController", {
     return _PlotPanningController.default;
   }
 });
+Object.defineProperty(exports, "Relay", {
+  enumerable: true,
+  get: function get() {
+    return _Relay.default;
+  }
+});
 
 var _PlotInteractionBox = _interopRequireWildcard(require("./PlotInteractionBox"));
 
 var _PlotInteractionProvider = _interopRequireDefault(require("./PlotInteractionProvider"));
 
 var _PlotPanningController = _interopRequireDefault(require("./PlotPanningController"));
+
+var _Relay = _interopRequireDefault(require("./Relay"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
