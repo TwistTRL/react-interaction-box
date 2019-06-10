@@ -34,7 +34,7 @@ class Relay extends Component {
 
 
 Relay.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object,
   updateHandler: PropTypes.func.isRequired,
 };
 
