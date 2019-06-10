@@ -49,6 +49,21 @@ function (_Component) {
   _createClass(Relay, [{
     key: "render",
     value: function render() {
+      return null;
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.update();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.update();
+    }
+  }, {
+    key: "update",
+    value: function update() {
       var _this$props = this.props,
           data = _this$props.data,
           updateHandler = _this$props.updateHandler;
@@ -67,7 +82,7 @@ function (_Component) {
 }(_react.Component);
 
 Relay.propTypes = {
-  data: _propTypes.default.object.isRequired,
+  data: _propTypes.default.object,
   updateHandler: _propTypes.default.func.isRequired
 };
 var _default = Relay;
