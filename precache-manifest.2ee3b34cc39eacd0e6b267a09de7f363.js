@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2813cc9eb7b566820fcd50df80145d1a",
+    "revision": "4cd08ce23a406057899d09d9e7df5cb0",
     "url": "/react-plot-interaction-box/index.html"
   },
   {
-    "revision": "a4f46bcb1aff1c2f5870",
+    "revision": "0a2df263cc396c459a29",
     "url": "/react-plot-interaction-box/static/css/main.1578f53f.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-plot-interaction-box/static/js/2.d65f078d.chunk.js"
   },
   {
-    "revision": "a4f46bcb1aff1c2f5870",
-    "url": "/react-plot-interaction-box/static/js/main.4d186cf5.chunk.js"
+    "revision": "0a2df263cc396c459a29",
+    "url": "/react-plot-interaction-box/static/js/main.ffc3ec15.chunk.js"
   },
   {
     "revision": "4821ccf264242146798d",

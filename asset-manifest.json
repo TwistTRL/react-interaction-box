@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-plot-interaction-box/static/css/main.1578f53f.chunk.css",
-    "main.js": "/react-plot-interaction-box/static/js/main.4d186cf5.chunk.js",
-    "main.js.map": "/react-plot-interaction-box/static/js/main.4d186cf5.chunk.js.map",
+    "main.js": "/react-plot-interaction-box/static/js/main.ffc3ec15.chunk.js",
+    "main.js.map": "/react-plot-interaction-box/static/js/main.ffc3ec15.chunk.js.map",
     "runtime~main.js": "/react-plot-interaction-box/static/js/runtime~main.1cd30d31.js",
     "runtime~main.js.map": "/react-plot-interaction-box/static/js/runtime~main.1cd30d31.js.map",
     "static/js/2.d65f078d.chunk.js": "/react-plot-interaction-box/static/js/2.d65f078d.chunk.js",
     "static/js/2.d65f078d.chunk.js.map": "/react-plot-interaction-box/static/js/2.d65f078d.chunk.js.map",
     "index.html": "/react-plot-interaction-box/index.html",
-    "precache-manifest.710ed1abc4c30ec8c11d060ab2d49d47.js": "/react-plot-interaction-box/precache-manifest.710ed1abc4c30ec8c11d060ab2d49d47.js",
+    "precache-manifest.2ee3b34cc39eacd0e6b267a09de7f363.js": "/react-plot-interaction-box/precache-manifest.2ee3b34cc39eacd0e6b267a09de7f363.js",
     "service-worker.js": "/react-plot-interaction-box/service-worker.js",
     "static/css/main.1578f53f.chunk.css.map": "/react-plot-interaction-box/static/css/main.1578f53f.chunk.css.map"
   }

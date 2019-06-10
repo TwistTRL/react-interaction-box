@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-plot-interaction-box/precache-manifest.710ed1abc4c30ec8c11d060ab2d49d47.js"
+  "/react-plot-interaction-box/precache-manifest.2ee3b34cc39eacd0e6b267a09de7f363.js"
 );
 
 self.addEventListener('message', (event) => {
