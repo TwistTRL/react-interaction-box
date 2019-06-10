@@ -6,7 +6,20 @@ class Relay extends Component {
     super(props);
     this.lastData = null;
   }
+  
   render() {
+    return null;
+  }
+
+  componentDidMount(){
+    this.update();
+  }
+  
+  componentDidUpdate(){
+    this.update();
+  }
+
+  update(){
     let {data,updateHandler} = this.props;
     if (data === this.lastData ){
       //pass
