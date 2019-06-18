@@ -2,7 +2,7 @@
   "name": "react-plot-interaction-box",
   "version": "0.1.0",
   "dependencies": {
-    "plot-utils": "github:zhoulytwinyu/plot-utils"
+    "plot-utils": "github:zhoulytwinyu/plot-utils#v0.1.0"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
@@ -18,8 +18,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-plot-vertical-crosshair": "github:twisttrl/react-plot-vertical-crosshair",
-    "react-router-dom": "^5.0.0",
+    "react-plot-vertical-crosshair": "github:twisttrl/react-plot-vertical-crosshair#v0.1.0",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1"
   },
   "babel": {
