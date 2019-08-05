@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 class Relay extends Component {
   constructor(props){
     super(props);
-    this.lastData = null;
   }
   
   render() {
@@ -21,13 +20,7 @@ class Relay extends Component {
 
   update(){
     let {data,updateHandler} = this.props;
-    if (data === this.lastData ){
-      //pass
-    }
-    else {
-      this.lastData = data;
-      updateHandler(data);
-    }
+    updateHandler(data);
     return null;
   }
 }
